@@ -32,7 +32,12 @@
 }
 
 .header_menu li a img{
-    width: 50%;
+    width: 100%;
+}
+
+.header_logo{
+    width: 290px;
+    height: 55px;
 }
 
 
