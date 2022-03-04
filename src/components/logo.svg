@@ -1,0 +1,24 @@
+<svg width="580" height="111" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with SVG Editor - http://github.com/mzalive/SVG Editor/ -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="113" width="582" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="142" id="svg_2" y="82.453125" x="157.5" stroke-width="0" stroke="#000" fill="#000000">MyApp</text>
+  <rect stroke="#000" id="svg_3" height="77" width="27" y="12.953125" x="28.5" fill-opacity="null" stroke-opacity="null" stroke-width="3" fill="none"/>
+  <rect stroke="#000" id="svg_5" height="77" width="27" y="12.953125" x="55.959058" fill-opacity="null" stroke-opacity="null" stroke-width="3" fill="none"/>
+  <rect stroke="#000" id="svg_6" height="77" width="27" y="12.953125" x="83.867635" fill-opacity="null" stroke-opacity="null" stroke-width="3" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_11" y2="89.317704" x2="109.999985" y1="13.317714" x1="28.333329" fill-opacity="null" stroke-opacity="null" stroke-width="3" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_12" y2="13.984381" x2="109.666651" y1="88.651037" x1="28.999996" stroke-opacity="null" stroke-width="3" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_13" y2="51.984375" x2="68.333324" y1="87.651037" x1="29.333329" stroke-opacity="null" stroke-width="3" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_14" y2="13.984381" x2="68.666657" y1="89.317704" x1="28.666663" stroke-opacity="null" stroke-width="3" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_15" y2="13.984381" x2="68.666657" y1="89.317704" x1="28.666663" stroke-opacity="null" stroke-width="3" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_16" y2="88.98437" x2="109.666651" y1="12.651048" x1="68.99999" stroke-opacity="null" stroke-width="3" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_17" y2="144.984362" x2="127.666649" y1="144.651029" x1="127.666649" stroke-opacity="null" stroke-width="3" stroke="#000" fill="none"/>
+ </g>
+</svg>
