@@ -1,4 +1,7 @@
-.content_main{
-    height: 100%;
-    background: red;
+.content{
+    font-family: "Courier New",sans-serif;
+    font-size: 32px;
+    background-color: white;
+    padding: 2.5%;
+    flex: 1 0 auto;
 }
