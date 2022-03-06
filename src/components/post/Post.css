@@ -12,6 +12,8 @@
 .Post-name{
     font-weight: bold;
     font-size: 30px;
+    text-decoration: none;
+    color: black;
 }
 
 .Post-text{
