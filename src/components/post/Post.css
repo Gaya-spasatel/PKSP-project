@@ -4,6 +4,21 @@
     background-color: white;
     padding: 2.5%;
     border-style: solid;
+    border-color: #aaaaaa;
     width: 72%;
     margin: 2.5%;
+}
+
+.Post-name{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.Post-text{
+    margin-top: 2%;
+}
+
+.Post-date{
+    margin-top: 2.5%;
+    color: gray;
 }

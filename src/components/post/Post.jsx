@@ -8,8 +8,8 @@ function formdate(date) {
 function Post(props){
     return(
         <div className="Post">
-            <UserInfo user={props.author}/>
             <div className="Post-name">{props.name}</div>
+            <UserInfo user={props.author}/>
             <div className="Post-text">{props.text}</div>
             <div className="Post-date">{formdate(props.date)}</div>
         </div>

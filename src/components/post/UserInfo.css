@@ -3,3 +3,9 @@
     flex-direction: row;
     align-items: center;
 }
+
+.UserInfo-name{
+    margin-left: 1%;
+    font-weight: bold;
+    font-style: italic;
+}
