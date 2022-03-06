@@ -10,7 +10,6 @@ function Header(){
                 <li><a href="">Пункт меню</a></li>
                 <li><a href="">Пункт меню</a></li>
                 <li><a href="">Пункт меню</a></li>
-                <li><a href="">Пункт меню</a></li>
             </ul>
 
         </header>

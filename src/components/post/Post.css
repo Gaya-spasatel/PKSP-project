@@ -1,0 +1,9 @@
+.Post{
+    font-family: "Courier New",sans-serif;
+    font-size: 24px;
+    background-color: white;
+    padding: 2.5%;
+    border-style: solid;
+    width: 72%;
+    margin: 2.5%;
+}
