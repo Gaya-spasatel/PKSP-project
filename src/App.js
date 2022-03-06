@@ -1,8 +1,10 @@
 import './App.css';
 import Header from "./components/Header";
-import Post from "./components/post/Post";
 import Footer from "./components/Footer";
-import ContentMain from "./components/ContentMain";
+import {Route, Routes} from "react-router-dom";
+import Home from "./components/Home";
+import ContentPosts from "./components/ContentPosts";
+import ContentPost from "./components/ContentPost";
 
 const post_first = {
     date: new Date(),
@@ -30,7 +32,11 @@ function App() {
   return (
     <div className="App">
         <Header/>
-        <ContentMain posts={posts}/>
+        <Routes>
+            <Route exact path='/' element={<Home/>}/>
+            <Route path='/posts/all' element={<ContentPosts posts={posts}/>}/>
+            <Route path='/posts/:number' element={<ContentPost posts={posts}/>}/>
+        </Routes>
         <Footer/>
     </div>
   );
