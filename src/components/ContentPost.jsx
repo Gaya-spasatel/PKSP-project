@@ -9,7 +9,7 @@ function ContentPost(props){
         const post = props.posts[post_id]
         return(
             <div className="content">
-            <Post date={post.date} text={post.text} author={post.author} name={post.name} id={post_id}/>
+            <Post date={post.date} text={post.text} author={post.author} name={post.name} id={post_id} alltext={true}/>
             </div>
         );
     }
