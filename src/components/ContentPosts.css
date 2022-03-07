@@ -1,6 +1,5 @@
 .content{
     background-color: whitesmoke;
-    padding: 2.5%;
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
