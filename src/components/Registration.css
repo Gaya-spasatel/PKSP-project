@@ -1,0 +1,33 @@
+.Registration{
+    background-color: whitesmoke;
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 2.5%;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Courier New", sans-serif;
+    font-size: 32px;
+    justify-content: center;
+    box-shadow: 3px 0 7px black;
+    border: black;
+}
+.RegButton{
+    background-color: cornflowerblue;
+    border-color: white;
+    border-radius: 10px;
+    color: white;
+    padding: 8px 16px;
+}
+
+.RegText{
+    font-family: "Courier New", sans-serif;
+    font-size: 32px;
+    width: 45%;
+}
+
+.RegElement{
+    display: flex;
+    flex-direction: row;
+}

@@ -1,5 +1,6 @@
 import "./Authorization.css"
 import React from "react";
+import {Link} from "react-router-dom";
 
 class Authorization extends React.Component{
     constructor(props) {
@@ -20,6 +21,7 @@ class Authorization extends React.Component{
     render() {
         return(
             <div className="Authorization">
+                <Link to="/reg" className="AuthText">Register</Link>
             <form onSubmit={this.handleSubmit}>
                 <label className='AuthElement'>
                     Username:
@@ -27,7 +29,7 @@ class Authorization extends React.Component{
                 </label>
                 <label className='AuthElement'>
                     Password:
-                    <input type="password" value={this.state.username}  onChange={this.handleChange} className="AuthText AuthElement"/>
+                    <input type="password" value={this.state.password}  onChange={this.handleChange} className="AuthText AuthElement"/>
                 </label>
                 <input type="submit" value="Authorize" className="AuthButton AuthText"/>
             </form></div>

@@ -6,6 +6,8 @@ import Home from "./components/Home";
 import ContentPosts from "./components/ContentPosts";
 import ContentPost from "./components/ContentPost";
 import Authorization from "./components/Authorization";
+import Registration from "./components/Registration";
+import {register, login} from "./store/actions";
 
 const post_first = {
     id:0,
@@ -39,7 +41,8 @@ function App() {
             <Route exact path='/' element={<Home/>}/>
             <Route path='/posts/all' element={<ContentPosts posts={posts}/>}/>
             <Route path='/posts/:number' element={<ContentPost posts={posts}/>}/>
-            <Route path='/auth' element={<Authorization/>}/>
+            <Route path='/auth' element={<Authorization onSubmit={login}/>}/>
+            <Route path='/reg' element={<Registration onSubmit={register}/>}/>
         </Routes>
         <Footer/>
     </div>
