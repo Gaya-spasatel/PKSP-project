@@ -12,10 +12,11 @@ import {initialState} from "./initialState";
 export function reducer(state = initialState, action) {
     switch (action.type) {
         case SIGNUP_REQUEST: {
-            console.log('signup_request')
+            alert('signup_request')
             return state;
         }
         case SIGNIN_REQUEST: {
+
             return state;
         }
         case SIGNUP_SUCCESS: {

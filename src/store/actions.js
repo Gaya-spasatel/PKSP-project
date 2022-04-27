@@ -1,19 +1,20 @@
 export function register(username, password, avatar) {
+    alert('in func');
     return (dispatch) => {
-        // dispatch(signup_request())
-        return fetch('http://localhost:3001/users', {
+        alert('in dispatch')
+        dispatch(signup_request())
+        fetch('http://localhost:3001/users', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({username, password, avatar}),
         }).then(res => {
-            console.log('got answer')
+            alert('got answer')
             return res.text()
         }).then(data => {
             data = JSON.parse(data);
             if (data.result === 'added') {
-                alert('success');
                 dispatch(signup_success())
             } else{
                 dispatch(signup_failure(data.result))
@@ -45,6 +46,28 @@ export function login(username, password) {
         })
     };
 }
+
+// export function recieveAuth(){
+//     return(dispatch, getState) => {
+//         const {token} = getState().authorization.token;
+//         if (!token) {
+//             dispatch({
+//                 type: RECIEVE_AUTH_FAILURE
+//             })
+//         }
+//         return callApi('/userauth', token)
+//             .then(json => {
+//                 dispatch({
+//                     type: types.RECIEVE_AUTH_SUCCESS,
+//                     payload: json
+//                 })
+//             })
+//             .catch(reason => dispatch({
+//                 type: RECIEVE_AUTH_FAILURE,
+//                 payload: reason
+//             }));
+//     }
+// }
 
 export function signup_request() {
     return {
@@ -91,3 +114,4 @@ export const SIGNUP_SUCCESS = 'signup/success';
 export const SIGNIN_SUCCESS = 'signin/success';
 export const SIGNUP_FAILURE = 'signup/failure';
 export const SIGNIN_FAILURE = 'singin/failure';
+export const RECIEVE_AUTH_FAILURE = 'auth_failure'

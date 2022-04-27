@@ -8,6 +8,8 @@ import ContentPost from "./components/ContentPost";
 import Authorization from "./components/Authorization";
 import Registration from "./components/Registration";
 import {register, login} from "./store/actions";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
 
 const post_first = {
     id:0,
@@ -49,4 +51,8 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = dispatch => bindActionCreators({
+    register,
+    login,
+}, dispatch);
+export default connect(null, mapDispatchToProps)(App);
