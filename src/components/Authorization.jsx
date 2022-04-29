@@ -1,40 +1,40 @@
 import "./Authorization.css"
 import React from "react";
 import {Link} from "react-router-dom";
+import {login, login_form_changed} from "../store/actions";
+import {useDispatch, useSelector} from "react-redux";
+import {getInputAuthorizationState} from "../store/selectors";
 
-class Authorization extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {username: '', password: ''}
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
 
-    handleChange(event){
-        this.setState({username: event.target.username, password: event.target.password});
-    }
+export default function Authorization(props) {
 
-    handleSubmit(event){
-        event.preventDefault();
-    }
+    const {username, password} = useSelector(getInputAuthorizationState())
+    const dispatch = useDispatch()
 
-    render() {
-        return(
-            <div className="Authorization">
-                <Link to="/reg" className="AuthText">Register</Link>
-            <form onSubmit={this.handleSubmit}>
+    const handleSubmit = React.useCallback(()=>{
+        dispatch(login(username, password))
+    }, [dispatch, username, password])
+
+    const handleChange = React.useCallback((event)=>{
+        event.preventDefault()
+        dispatch(login_form_changed(event.target.form[0].value, event.target.form[1].value))
+    }, [dispatch])
+
+    return (
+        <div className="Authorization">
+            <Link to="/reg" className="AuthText">Register</Link>
+            <form onSubmit={handleSubmit}>
                 <label className='AuthElement'>
                     Username:
-                    <input type="text" value={this.state.username}  onChange={this.handleChange} className="AuthText"/>
+                    <input type="text" onChange={handleChange} className="AuthText"/>
                 </label>
                 <label className='AuthElement'>
                     Password:
-                    <input type="password" value={this.state.password}  onChange={this.handleChange} className="AuthText AuthElement"/>
+                    <input type="password"  onChange={handleChange}
+                           className="AuthText AuthElement"/>
                 </label>
                 <input type="submit" value="Authorize" className="AuthButton AuthText"/>
-            </form></div>
-        );
-    }
+            </form>
+        </div>
+    );
 }
-
-export default Authorization;

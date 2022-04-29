@@ -7,5 +7,9 @@ export const initialState ={
         login: '',
         password: '',
         avatar: ''
+    },
+    input_login:{
+      username: '',
+      password: ''
     }
 }
