@@ -11,8 +11,10 @@ export default function Authorization(props) {
     const {username, password} = useSelector(getInputAuthorizationState())
     const dispatch = useDispatch()
 
-    const handleSubmit = React.useCallback(()=>{
+    const handleSubmit = React.useCallback((event)=>{
+        event.preventDefault();
         dispatch(login(username, password))
+        return false;
     }, [dispatch, username, password])
 
     const handleChange = React.useCallback((event)=>{

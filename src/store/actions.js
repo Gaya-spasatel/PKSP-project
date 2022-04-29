@@ -38,6 +38,7 @@ export function login(username, password) {
             body: JSON.stringify({username, password}),
         }).then(res => {
             alert('got answer')
+            console.log(res)
             return res.json()
         }).then(data => {
             alert('data')
