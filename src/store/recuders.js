@@ -4,7 +4,13 @@ import {
     SIGNUP_SUCCESS,
     SIGNIN_SUCCESS,
     SIGNIN_FAILURE,
-    SIGNUP_FAILURE, REGISTER_FORM_CHANGED, LOGIN_FORM_CHANGED, EXIT_SUCCESS, ADD_POST_SUCCESS, ADD_POST_FORM_CHANGED
+    SIGNUP_FAILURE,
+    REGISTER_FORM_CHANGED,
+    LOGIN_FORM_CHANGED,
+    EXIT_SUCCESS,
+    ADD_POST_SUCCESS,
+    ADD_POST_FORM_CHANGED,
+    POSTS_ALL_SUCCESS
 } from "./actions";
 import {initialState} from "./initialState";
 
@@ -86,6 +92,14 @@ export function reducer(state = initialState, action) {
                     text:action.text,
                 }
             };
+        }
+        case POSTS_ALL_SUCCESS:{
+            alert('reducer get posts success')
+            return {
+                ...state,
+                needLoading: false,
+                posts: action.posts,
+            }
         }
         default:
             return state;

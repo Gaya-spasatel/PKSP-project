@@ -1,24 +1,24 @@
 import Post from "../post/Post";
 import "./css/ContentPosts.css"
 import {useDispatch, useSelector} from "react-redux";
-import {getAuthorization, getPosts} from "../../store/selectors";
+import {getAuthorization, getNeedLoading, getPosts} from "../../store/selectors";
 import {get_all_posts} from "../../store/actions";
-import {Navigate} from "react-router-dom";
-import React from "react";
+import React, {useEffect} from "react";
 
 
 function ContentPosts(props){
     const posts2 = useSelector(getPosts())
     const token = useSelector(getAuthorization()).token;
+    const needLoading = useSelector(getNeedLoading())
     const dispatch = useDispatch()
-    if (!useSelector(getAuthorization()).is_authorized) {
-        return (<Navigate to={'/auth'}/>);
-    }
-    dispatch(get_all_posts(token))
-    const posts = props.posts.map((post)=>
-        <Post date={post.date} text={post.text} author={post.author} name={post.name} id={post.id} alltext={false}/>
-    );
+    useEffect(()=>{
+        dispatch(get_all_posts(token))
+    }, [dispatch, needLoading, token])
 
+    const posts = posts2.map((post)=>
+        <Post date={post.date} text={post.post_text} author={{name: post.username, avatarUrl: post.avatar}} name={post.name} id={post.id_post} alltext={false}/>
+    );
+    console.log(posts)
     return(
         <div className="content">
             {posts}

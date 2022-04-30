@@ -23,7 +23,6 @@ export function register(username, password, avatar) {
 }
 
 export function login(username, password) {
-    console.log('login')
     return (dispatch) => {
       dispatch(signin_request())
         fetch('http://localhost:3001/users/auth', {
@@ -33,11 +32,8 @@ export function login(username, password) {
             },
             body: JSON.stringify({username, password}),
         }).then(res => {
-            console.log(res)
             return res.json()
         }).then(data => {
-            alert('data')
-            alert(data.toString())
             if (data.result === 'authorized') {
                 dispatch(signin_success(data.data.token, username))
             } else dispatch(signin_failure(data.result));
@@ -166,8 +162,9 @@ export function get_all_posts(token){
             alert(data.toString())
             console.log(data)
             if (data.result === 'success') {
-                dispatch(get_all_posts_success(null))
+                dispatch(get_all_posts_success(data.data))
             } else dispatch(get_all_posts_failure(data.result));
+            alert('here');
         }).catch(error => {
             console.log(error)
             dispatch(get_all_posts_failure(error))
@@ -184,7 +181,7 @@ export function get_all_posts_request(){
 export function get_all_posts_success(posts){
     return{
         type: POSTS_ALL_SUCCESS,
-        data: posts
+        posts: posts
     }
 }
 
@@ -242,6 +239,7 @@ export function add_post(token, name, post_text){
             if (data.result === 'success') {
                 dispatch(add_post_success())
             } else dispatch(add_post_failure(data.result));
+            alert('here');
         }).catch(error => {
             console.log(error)
             dispatch(add_post_failure(error))

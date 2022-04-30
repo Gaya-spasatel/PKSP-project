@@ -15,6 +15,8 @@ export const initialState ={
     },
     posts: [],
     myPosts: [],
+    needLoadingPosts: true,
+    needLoadingPostsMy: true,
     input_post:{
         name: '',
         text:'',
