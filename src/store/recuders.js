@@ -10,7 +10,7 @@ import {
     EXIT_SUCCESS,
     ADD_POST_SUCCESS,
     ADD_POST_FORM_CHANGED,
-    POSTS_ALL_SUCCESS
+    POSTS_ALL_SUCCESS, POSTS_ALL_AUTHOR_SUCCESS
 } from "./actions";
 import {initialState} from "./initialState";
 
@@ -90,8 +90,16 @@ export function reducer(state = initialState, action) {
             alert('reducer get posts success')
             return {
                 ...state,
-                needLoading: false,
+                needLoadingPosts: false,
                 posts: action.posts,
+            }
+        }
+        case POSTS_ALL_AUTHOR_SUCCESS:{
+            alert('got all posts');
+            return{
+                ...state,
+                needLoadingPostsMy: false,
+                myPosts: action.posts,
             }
         }
         default:

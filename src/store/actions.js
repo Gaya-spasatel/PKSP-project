@@ -12,8 +12,8 @@ export function register(username, password, avatar) {
         }).then(data => {
             if (data.result === 'added') {
                 dispatch(signup_success())
-            }else if(data.data.message !== undefined) dispatch(signin_failure(data.data.message));
-            else{
+            } else if (data.data.message !== undefined) dispatch(signin_failure(data.data.message));
+            else {
                 dispatch(signup_failure(data.result))
             }
         }).catch(error => {
@@ -24,7 +24,7 @@ export function register(username, password, avatar) {
 
 export function login(username, password) {
     return (dispatch) => {
-      dispatch(signin_request())
+        dispatch(signin_request())
         fetch('http://localhost:3001/users/auth', {
             method: "POST",
             headers: {
@@ -44,7 +44,7 @@ export function login(username, password) {
     };
 }
 
-export function register_form_changed(username, password, avatar){
+export function register_form_changed(username, password, avatar) {
     return {
         type: REGISTER_FORM_CHANGED,
         username: username,
@@ -53,7 +53,7 @@ export function register_form_changed(username, password, avatar){
     }
 }
 
-export function login_form_changed(username, password){
+export function login_form_changed(username, password) {
     return {
         type: LOGIN_FORM_CHANGED,
         username: username,
@@ -101,7 +101,7 @@ export function signin_failure(message) {
     }
 }
 
-export function exit_request(){
+export function exit_request() {
     return {
         type: EXIT_REQUEST,
     }
@@ -120,7 +120,7 @@ function exit_failure(result) {
     };
 }
 
-export function exit(token){
+export function exit(token) {
     return (dispatch) => {
         dispatch(exit_request())
         fetch('http://localhost:3001/users', {
@@ -145,7 +145,7 @@ export function exit(token){
     };
 }
 
-export function get_all_posts(token){
+export function get_all_posts(token) {
     return (dispatch) => {
         dispatch(get_all_posts_request())
         fetch('http://localhost:3001/posts', {
@@ -169,46 +169,46 @@ export function get_all_posts(token){
     };
 }
 
-export function get_all_posts_request(){
-    return{
+export function get_all_posts_request() {
+    return {
         type: POSTS_ALL_REQUEST,
     }
 }
 
-export function get_all_posts_success(posts){
-    return{
+export function get_all_posts_success(posts) {
+    return {
         type: POSTS_ALL_SUCCESS,
         posts: posts
     }
 }
 
-export function get_all_posts_failure(message){
+export function get_all_posts_failure(message) {
     return {
         type: POSTS_ALL_FAILURE,
         message: message
     }
 }
 
-export function add_post_request(){
-    return{
+export function add_post_request() {
+    return {
         type: ADD_POST_REQUEST,
     }
 }
 
-export function add_post_success(){
+export function add_post_success() {
     return {
         type: ADD_POST_SUCCESS
     }
 }
 
-export function add_post_failure(message){
+export function add_post_failure(message) {
     return {
         type: ADD_POST_FAILURE,
         message: message
     }
 }
 
-export function add_post_form_changed(name, text){
+export function add_post_form_changed(name, text) {
     return {
         type: ADD_POST_FORM_CHANGED,
         name: name,
@@ -216,8 +216,8 @@ export function add_post_form_changed(name, text){
     }
 }
 
-export function add_post(token, name, post_text){
-    alert(name+" "+post_text);
+export function add_post(token, name, post_text) {
+    alert(name + " " + post_text);
     return (dispatch) => {
         dispatch(add_post_request())
         fetch('http://localhost:3001/posts', {
@@ -244,6 +244,52 @@ export function add_post(token, name, post_text){
     };
 }
 
+export function posts_all_auth_request() {
+    return {
+        type: POSTS_ALL_AUTHOR_REQUEST
+    }
+}
+
+export function posts_all_auth_success(posts) {
+    return {
+        type: POSTS_ALL_AUTHOR_SUCCESS,
+        posts: posts
+    }
+}
+
+export function posts_all_auth_failure(message) {
+    return {
+        type: POSTS_ALL_AUTHOR_FAILURE,
+        message: message
+
+    }
+}
+
+export function get_posts_my(token){
+    alert('my')
+    return (dispatch) => {
+        dispatch(posts_all_auth_request())
+        fetch('http://localhost:3001/posts/all', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({token}),
+        }).then(res => {
+            console.log(res)
+            return res.json()
+        }).then(data => {
+            console.log(data)
+            if (data.result === 'success') {
+                dispatch(posts_all_auth_success(data.data))
+            } else dispatch(posts_all_auth_failure(data.result));
+        }).catch(error => {
+            console.log(error)
+            dispatch(posts_all_auth_failure(error))
+        })
+    };
+}
+
 export const SIGNUP_REQUEST = 'signup/request';
 export const SIGNIN_REQUEST = 'signin/request';
 export const SIGNUP_SUCCESS = 'signup/success';
@@ -262,3 +308,6 @@ export const ADD_POST_REQUEST = 'add_post/request';
 export const ADD_POST_SUCCESS = 'add_post/success';
 export const ADD_POST_FAILURE = 'add_post/failure';
 export const ADD_POST_FORM_CHANGED = 'add_post/form_changed';
+export const POSTS_ALL_AUTHOR_REQUEST = 'post_auth/request';
+export const POSTS_ALL_AUTHOR_SUCCESS = 'post_auth/success';
+export const POSTS_ALL_AUTHOR_FAILURE = 'post_auth/failure';

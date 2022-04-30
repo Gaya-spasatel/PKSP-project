@@ -1,25 +1,29 @@
 import Post from "../post/Post";
 import "./css/ContentPosts.css"
 import {useDispatch, useSelector} from "react-redux";
-import {getAuthorization, getPosts} from "../../store/selectors";
-import {get_all_posts} from "../../store/actions";
-import {Navigate} from "react-router-dom";
+import {getAuthorization, getNeedLoadingMy, getPosts, getPostsMy} from "../../store/selectors";
+import {get_posts_my} from "../../store/actions";
 import React from "react";
+import {useEffect} from "react";
 
 
-function ContentPostsMy(props){
-    const posts2 = useSelector(getPosts())
+function ContentPostsMy(props) {
+    const posts2 = useSelector(getPostsMy())
     const token = useSelector(getAuthorization()).token;
+    const username = useSelector(getAuthorization()).username;
+    const needLoading = useSelector(getNeedLoadingMy())
     const dispatch = useDispatch()
-    if (!useSelector(getAuthorization()).is_authorized) {
-        return (<Navigate to={'/auth'}/>);
-    }
-    dispatch(get_all_posts(token))
-    const posts = props.posts.map((post)=>
-        <Post date={post.date} text={post.text} author={post.author} name={post.name} id={post.id} alltext={false}/>
-    );
 
-    return(
+    useEffect(() => {
+        dispatch(get_posts_my(token))
+    }, [dispatch, needLoading, token])
+
+    const posts = posts2.map((post) => {
+        return <Post date={post.date} text={post.post_text} author={{name: post.username, avatarUrl: post.avatar}}
+              name={post.name} id={post.id_post} alltext={false}/>;
+    });
+    console.log(posts)
+    return (
         <div className="content">
             {posts}
         </div>
