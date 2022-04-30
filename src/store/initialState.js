@@ -1,7 +1,8 @@
 export const initialState ={
     authorization:{
         is_authorized: false,
-        token: '-'
+        token: '-',
+        username: ''
     },
     input_registration:{
         login: '',
@@ -11,5 +12,6 @@ export const initialState ={
     input_login:{
       username: '',
       password: ''
-    }
+    },
+    posts: [],
 }

@@ -4,7 +4,7 @@ import {
     SIGNUP_SUCCESS,
     SIGNIN_SUCCESS,
     SIGNIN_FAILURE,
-    SIGNUP_FAILURE, REGISTER_FORM_CHANGED, LOGIN_FORM_CHANGED
+    SIGNUP_FAILURE, REGISTER_FORM_CHANGED, LOGIN_FORM_CHANGED, EXIT_SUCCESS
 } from "./actions";
 import {initialState} from "./initialState";
 
@@ -30,7 +30,18 @@ export function reducer(state = initialState, action) {
                 ...state,
                 authorization: {
                     is_authorized: true,
-                    token: action.token
+                    token: action.token,
+                    username: action.username
+                }
+            };
+        }
+        case EXIT_SUCCESS:{
+            return {
+                ...state,
+                authorization: {
+                    is_authorized: false,
+                    token: '',
+                    username: ""
                 }
             };
         }
