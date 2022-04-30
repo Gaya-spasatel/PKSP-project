@@ -223,6 +223,7 @@ export function add_post_form_changed(name, text){
 }
 
 export function add_post(token, name, post_text){
+    alert(name+" "+post_text);
     return (dispatch) => {
         dispatch(add_post_request())
         fetch('http://localhost:3001/posts', {

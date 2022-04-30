@@ -4,7 +4,7 @@ import {
     SIGNUP_SUCCESS,
     SIGNIN_SUCCESS,
     SIGNIN_FAILURE,
-    SIGNUP_FAILURE, REGISTER_FORM_CHANGED, LOGIN_FORM_CHANGED, EXIT_SUCCESS
+    SIGNUP_FAILURE, REGISTER_FORM_CHANGED, LOGIN_FORM_CHANGED, EXIT_SUCCESS, ADD_POST_SUCCESS, ADD_POST_FORM_CHANGED
 } from "./actions";
 import {initialState} from "./initialState";
 
@@ -73,6 +73,19 @@ export function reducer(state = initialState, action) {
             alert('registration failure')
             alert(action.message)
             return state;
+        }
+        case ADD_POST_SUCCESS:{
+            alert('Successfully added post!');
+            return state;
+        }
+        case ADD_POST_FORM_CHANGED:{
+            return{
+              ...state,
+                input_post:{
+                    name: action.name,
+                    text:action.text,
+                }
+            };
         }
         default:
             return state;
