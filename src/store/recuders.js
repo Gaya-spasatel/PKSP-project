@@ -18,20 +18,15 @@ import {initialState} from "./initialState";
 export function reducer(state = initialState, action) {
     switch (action.type) {
         case SIGNUP_REQUEST: {
-            alert('signup_request')
             return state;
         }
         case SIGNIN_REQUEST: {
-            alert('signin_request')
             return state;
         }
         case SIGNUP_SUCCESS: {
-            alert('signup_success')
-            console.log('signup_success')
             return state;
         }
         case SIGNIN_SUCCESS: {
-            alert("login success")
             return {
                 ...state,
                 authorization: {
@@ -71,12 +66,10 @@ export function reducer(state = initialState, action) {
             }
         }
         case SIGNIN_FAILURE: {
-            alert('failure');
             alert(action.message)
             return state;
         }
         case SIGNUP_FAILURE: {
-            alert('registration failure')
             alert(action.message)
             return state;
         }

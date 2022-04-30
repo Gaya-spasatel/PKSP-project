@@ -158,13 +158,10 @@ export function get_all_posts(token){
             console.log(res)
             return res.json()
         }).then(data => {
-            alert('data')
-            alert(data.toString())
             console.log(data)
             if (data.result === 'success') {
                 dispatch(get_all_posts_success(data.data))
             } else dispatch(get_all_posts_failure(data.result));
-            alert('here');
         }).catch(error => {
             console.log(error)
             dispatch(get_all_posts_failure(error))
