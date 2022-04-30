@@ -1,7 +1,7 @@
-import "./ContentPost.css"
+import "./css/ContentPost.css"
 import {useParams} from "react-router-dom";
 import ContentNotFound from "./ContentNotFound";
-import Post from "./post/Post";
+import Post from "../post/Post";
 
 function ContentPost(props){
     let post_id = useParams().number;

@@ -9,6 +9,7 @@ function Header(props){
             <Link to="/" className="header-item"><img className="header_logo" src={logo} alt="logo" /></Link>
             <Link to="/posts/all" className="header-item">Posts</Link>
             <Link to="/posts/my" className="header-item">My posts</Link>
+            <Link to="/posts/add" className={"header-item"}>Add post</Link>
             <ExitButton className="header-item"/>
         </header>
     );

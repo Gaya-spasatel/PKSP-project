@@ -14,4 +14,9 @@ export const initialState ={
       password: ''
     },
     posts: [],
+    myPosts: [],
+    input_post:{
+        name: '',
+        text:'',
+    }
 }

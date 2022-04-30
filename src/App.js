@@ -3,13 +3,15 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import {Route, Routes} from "react-router-dom";
 import Home from "./components/Home";
-import ContentPosts from "./components/ContentPosts";
-import ContentPost from "./components/ContentPost";
+import ContentPosts from "./components/content/ContentPosts";
+import ContentPost from "./components/content/ContentPost";
 import Authorization from "./components/auth_reg/Authorization";
 import Registration from "./components/auth_reg/Registration";
 import {register, login} from "./store/actions";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
+import ContentPostsMy from "./components/content/ContentPostsMy";
+import ContentAddPost from "./components/content/ContentAddPost";
 
 const post_first = {
     id:0,
@@ -45,6 +47,8 @@ function App() {
             <Route path='/posts/:number' element={<ContentPost posts={posts}/>}/>
             <Route path='/auth' element={<Authorization onSubmit={login}/>}/>
             <Route path='/reg' element={<Registration onSubmit={register}/>}/>
+            <Route path='/posts/my' element={<ContentPostsMy/>}/>
+            <Route path='/posts/add' element={<ContentAddPost/>}/>
         </Routes>
         <Footer/>
     </div>

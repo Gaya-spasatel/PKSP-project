@@ -1,4 +1,4 @@
-import "./ContentNotFound.css"
+import "./css/ContentNotFound.css"
 
 function ContentNotFound(props){
     return (
